@@ -19,8 +19,8 @@ import turtle as t
 
 # t.exitonclick()
 
-angle = 90
-length = 100
+angle = 120
+length = int(input('Enter the length '))
 
 t.left(angle)
 t.forward(length)
