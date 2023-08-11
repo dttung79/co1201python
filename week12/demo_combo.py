@@ -9,6 +9,14 @@ movies_dict = {'The Matrix': ['Lana Wachowski, Lilly Wachowski', 'Keanu Reeves, 
                 
 
 ### EVENT HANDLERS ###
+def cbb_movies_selected(event):
+    # get movie name from combobox
+    movie = cbb_movies.get()
+    # set movie info from the dictionary
+    director = movies_dict[movie][0]
+    actors = movies_dict[movie][1]
+    lbl_director['text'] = f'Director: {director}'
+    lbl_actors['text'] = f'Actors: {actors}'
 
 ### CREATE WINDOW ###
 window = Tk()
@@ -23,6 +31,7 @@ movie_list = ['The Matrix', 'The Lord of the Rings', 'The Dark Knight', 'Incepti
                 'Interstellar']
 cbb_movies = Combobox(window, values=movie_list)
 cbb_movies.grid(row=1, column=0, columnspan=2, sticky=W)
+cbb_movies.bind('<<ComboboxSelected>>', cbb_movies_selected)
 
 lbl_info = Label(window, text='Movie info: ')
 lbl_info.grid(row=2, column=0, sticky=W)
